@@ -61,7 +61,11 @@ public class Main {
                     System.out.println("Ingrese la identificación del estudiante: ");
                     int idBusqueda = Integer.parseInt(scanner.nextLine());
 
-                    System.out.println("Estudiante encontrado: " + miEscuela.buscarEstudiante(idBusqueda).getNombre());
+                    if (miEscuela.buscarEstudiante(idBusqueda) != null){
+                        System.out.println("Estudiante encontrado: " + miEscuela.buscarEstudiante(idBusqueda).getNombre());
+                    } else {
+                        System.out.println("El estudiante no se encuentra registrado");
+                    }
                     break;
                 case 3:
                     System.out.println("Saliento del registro de estudiantes");
