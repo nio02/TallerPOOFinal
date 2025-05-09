@@ -9,7 +9,7 @@ public class Main {
         //Objeto
         Escuela miEscuela = new Escuela();
 
-        //Agregar estudiantes
+        //Punto 3
         Estudiante estudiante1 = new Estudiante("Pepito", 123, 3.45);
         Estudiante estudiante2 = new Estudiante("Carlitos", 456, 5);
         Estudiante estudiante3 = new Estudiante("Pepita", 789, 4.2);
@@ -17,6 +17,9 @@ public class Main {
         miEscuela.agregarEstudiante(estudiante1);
         miEscuela.agregarEstudiante(estudiante2);
         miEscuela.agregarEstudiante(estudiante3);
+        //Buscar estudiante
+        Estudiante busqueda = miEscuela.buscarEstudiante(456);
+        System.out.println("Información Búsqueda: \nNombre: " + busqueda.getNombre() + "\nIdentificación: " + busqueda.getNumeroId() + "\nCalificación: " + busqueda.getCalificacion());
 
         //Comprobaciones
 //        for (Estudiante alumno : miEscuela.listaEstudiantes){
@@ -76,7 +79,7 @@ public class Main {
 
         //Comprobaciones
         for (Estudiante alumno : miEscuela.listaEstudiantes){
-            System.out.println(alumno.getNombre());
+            System.out.println("Nombre: " + alumno.getNombre() + "\nIdentificacion: " + alumno.getNumeroId() + "\nCalificación: " + alumno.getCalificacion());
         }
     }
 }
