@@ -13,15 +13,17 @@ public class Main {
         Estudiante estudiante1 = new Estudiante("Pepito", 123, 3.45);
         Estudiante estudiante2 = new Estudiante("Carlitos", 456, 5);
         Estudiante estudiante3 = new Estudiante("Pepita", 789, 4.2);
+
         miEscuela.agregarEstudiante(estudiante1);
         miEscuela.agregarEstudiante(estudiante2);
         miEscuela.agregarEstudiante(estudiante3);
 
         //Comprobaciones
-        for (Estudiante alumno : miEscuela.listaEstudiantes){
-            System.out.println(alumno.getNombre());
-        }
+//        for (Estudiante alumno : miEscuela.listaEstudiantes){
+//            System.out.println("Nombre: " + alumno.getNombre() + "\nIdentificacion: " + alumno.getNumeroId() + "\nCalificación: " + alumno.getCalificacion());
+//        }
 
+        //Punto 4
         Scanner scanner = new Scanner(System.in);
         boolean bandera = true;
 
@@ -41,20 +43,16 @@ public class Main {
                     Estudiante estudianteBase = new Estudiante();
 
                     estudianteBase.setNombre(nombre);
-                    estudianteBase.setNumeroId(numId);
                     estudianteBase.setCalificacion(calificacion);
+                    estudianteBase.setNumeroId(numId);
 
-                    for (Estudiante alumno : miEscuela.listaEstudiantes) {
-                        if (alumno.getNumeroId() == estudianteBase.getNumeroId()) {
-                            System.out.println("Ese ID ya se encuentra registrado.");
-                        } else {
-                            if (calificacion >= 0 && calificacion <= 10) {
-                                miEscuela.agregarEstudiante(estudianteBase);
-                                System.out.println("Estudiante agregado");
-                            } else {
-                                System.out.println("Calificación no valida");
-                            }
+                    if (miEscuela.buscarEstudiante(numId) == null){
+                        if (estudianteBase.getCalificacion() != -1){
+                            miEscuela.agregarEstudiante(estudianteBase);
+                            System.out.println("Estudiante Agregado");
                         }
+                    } else {
+                        System.out.println("El número de Identificacion ya se encuentra registrado");
                     }
                     break;
                 case 2:
@@ -68,7 +66,7 @@ public class Main {
                     }
                     break;
                 case 3:
-                    System.out.println("Saliento del registro de estudiantes");
+                    System.out.println("Saliendo del registro de estudiantes");
                     bandera = false;
                     break;
                 default:

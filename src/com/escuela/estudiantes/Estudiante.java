@@ -32,6 +32,11 @@ public class Estudiante {
         return calificacion;
     }
     public void setCalificacion(double calificacion) {
-        this.calificacion = calificacion;
+        if (calificacion >= 0 && calificacion <= 10){
+            this.calificacion = calificacion;
+        } else {
+            System.out.println("Calificación no válida");
+            this.calificacion = -1; //Centinela o bandera
+        }
     }
 }
